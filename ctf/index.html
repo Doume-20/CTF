@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CTF</title>
+<link rel="stylesheet" href="ne pas toucher/style.CSS">
+<script src="ne pas toucher/solution.js" defer></script>
+</head>
+<body>
+
+<header>
+    <img src="ne pas toucher/logo.png" alt="Logo du site" class="logo">
+    <ul class="nav">
+        <li><a href="#cracking">Cracking</a></li>
+        <li><a href="#inforensique">Inforensique</a></li>
+        <li><a href="#web">Web</a></li>
+        <li><a href="#steganographie">Stéganographie</a></li>
+        <li><a href="#cryptographie">Cryptographie</a></li>
+        <li><a href="#les-outils">Les outils</a></li>
+        <li><a href="#autre-ctf">Autre CTF</a></li>
+    </ul>
+</header>
+
+<section id="cracking">
+    <h1>Cracking</h1>
+    <h3>Tutoriel : Cracking</h3>
+    <p>Voici un script Python. Votre objectif est de retrouver le mot de passe (flag) qui est demandé par celui-ci.</p>
+    <a href="ne pas toucher/cracking/crackme.py">crackme.py</a><br>
+    <input type="text" id="flag-cracking1" class="flag-input" placeholder="flag{...}">
+    <button class="flag-button" onclick="checkFlag('cracking1')">Vérifier</button>
+    <p id="result-cracking1" class="flag-result"></p>
+
+    <h3>BASE64</h3>
+    <a href="ne pas toucher/cracking/crackme python" download>cracking python.py</a><br>
+    <input type="text" id="flag-cracking2" class="flag-input" placeholder="flag{...}">
+    <button class="flag-button" onclick="checkFlag('cracking2')">Vérifier</button>
+    <p id="result-cracking2" class="flag-result"></p>
+</section>
+
+<section id="inforensique">
+    <h1>Inforensique</h1>
+    <h3>Un PDF qui bug</h3>
+    <p>Je n'arrive pas à l'ouvrir... Arrivez-vous à l'ouvrir ? Voici le fichier :</p>
+    <a href="ne pas toucher/inforensique/Mon_Document.pdf">Mon_Document.pdf</a><br>
+    <input type="text" id="flag-inforensique1" class="flag-input" placeholder="flag{...}">
+    <button class="flag-button" onclick="checkFlag('inforensique1')">Vérifier</button>
+    <p id="result-inforensique1" class="flag-result"></p>
+</section>
+
+<section id="web">
+    <h1>Web</h1>
+
+    <h3>Connection 1</h3>
+    <p>Réussirez-vous à trouver le flag ?</p>
+    <a href="ne pas toucher/web/defi1.html" target="_blank">défi1.html</a><br>
+    <input type="text" id="flag-web1" class="flag-input" placeholder="flag{...}">
+    <button class="flag-button" onclick="checkFlag('web1')">Vérifier</button>
+    <p id="result-web1" class="flag-result"></p>
+   
+    <h3>Connection 2</h3>
+    <p>Réussirez-vous à vous connecter ?</p>
+    <a href="ne pas toucher/web/defi2.html" target="_blank">défi2.html</a><br>
+    <input type="text" id="flag-web2" class="flag-input" placeholder="flag{...}">
+    <button class="flag-button" onclick="checkFlag('web2')">Vérifier</button>
+    <p id="result-web2" class="flag-result"></p>
+ 
+    <h3>La fouille sera utile</h3>
+    <p>Réussirez-vous à trouver le flag complet ?</p>
+    <a href="ne pas toucher/web/defi3/index.html" target="_blank">défi3.html</a><br>
+    <input type="text" id="flag-web3" class="flag-input" placeholder="flag{...}">
+    <button class="flag-button" onclick="checkFlag('web3')">Vérifier</button>
+    <p id="result-web3" class="flag-result"></p>
+  
+    <h3>Contournement avec style</h3>
+    <p>Ce formulaire est désactivé et ne peut pas être utilisé. À vous de trouver le moyen de l’utiliser tout de même.</p>
+    <a href="ne pas toucher/web/defi4.html" target="_blank">défi4.html</a><br>
+    <input type="text" id="flag-web4" class="flag-input" placeholder="flag{...}">
+    <button class="flag-button" onclick="checkFlag('web4')">Vérifier</button>
+    <p id="result-web4" class="flag-result"></p>
+</section>
+
+<section id="steganographie">
+    <h1>Stéganographie</h1>
+
+    <h3>Tutoriel</h3>
+    <p>Voici une superbe image :</p>
+    <a href="ne pas toucher/steganographie/defi1.png">message d'erreur</a><br>
+    <input type="text" id="flag-stegano1" class="flag-input" placeholder="flag{...}">
+    <button class="flag-button" onclick="checkFlag('stegano1')">Vérifier</button>
+    <p id="result-stegano1" class="flag-result"></p>
+
+    <h3>Mes textures</h3>
+    <p>Sauriez-vous trouver le flag caché dans celle-ci ? J'ai fait une petite vidéo de compilation de mes textures :</p>
+    <a href="ne pas toucher/steganographie/textures.mp4">petite vidéo sympa</a><br>
+    <input type="text" id="flag-textures" class="flag-input" placeholder="flag{...}">
+    <button class="flag-button" onclick="checkFlag('textures')">Vérifier</button>
+    <p id="result-textures" class="flag-result"></p>
+</section>
+
+<section id="cryptographie">
+    <h1>Cryptographie</h1>
+
+    <h3>Grands serpents</h3>
+    <p>Réussirez-vous à trouver le flag caché dans ce script ?</p>
+    <a href="ne pas toucher/cryptographie/great_snakes.py">great_snakes.py</a><br>
+    <input type="text" id="flag-snakes" class="flag-input" placeholder="crypto{...}">
+    <button class="flag-button" onclick="checkFlag('snakes')">Vérifier</button>
+    <p id="result-snakes" class="flag-result"></p>
+
+    <h3>ASCII</h3>
+    <a href="ne pas toucher/cryptographie/ASCII.txt" download>ASCII.txt</a><br>
+    <input type="text" id="flag-ascii" class="flag-input" placeholder="crypto{...}">
+    <button class="flag-button" onclick="checkFlag('ascii')">Vérifier</button>
+    <p id="result-ascii" class="flag-result"></p>
+
+    <h3>HEX</h3>
+    <a href="ne pas toucher/cryptographie/HEX.txt" download>HEX.txt</a><br>
+    <input type="text" id="flag-hex" class="flag-input" placeholder="crypto{...}">
+    <button class="flag-button" onclick="checkFlag('hex')">Vérifier</button>
+    <p id="result-hex" class="flag-result"></p>
+   
+    <h3>BASE64</h3>
+    <a href="ne pas toucher/cryptographie/BASE64.txt" download>BASE64.txt</a><br>
+    <input type="text" id="flag-base64" class="flag-input" placeholder="crypto{...}">
+    <button class="flag-button" onclick="checkFlag('base64')">Vérifier</button>
+    <p id="result-base64" class="flag-result"></p>
+   
+    <h3>XOR</h3>
+    <a href="ne pas toucher/cryptographie/xor.txt" download>xor.txt</a><br>
+    <input type="text" id="flag-xor" class="flag-input" placeholder="crypto{...}">
+    <button class="flag-button" onclick="checkFlag('xor')">Vérifier</button>
+    <p id="result-xor" class="flag-result"></p>
+</section>
+
+<section id="les-outils">
+    <h1>Les outils</h1>
+    <p>Pour les images :</p>
+    <a href="https://apps.microsoft.com/detail/9pnsjclxdz0v?hl=fr-FR&gl=FR" target="_blank">Gimp</a>
+    <p>Pour les vidéos :</p>
+    <p class="VLC">VLC</p>
+    <p>Pour le code :</p>
+    <a href="https://apps.microsoft.com/detail/xp9khm4bk9fz7q?hl=fr-FR&gl=FR" target="_blank">VS Code</a>
+    <p>Pour les codes à déchiffrer :</p>
+    <a href="https://www.dcode.fr/fr" target="_blank">dCode</a>
+</section>
+
+<section id="autre-ctf">
+    <h1>Autre CTF</h1>
+    <a href="https://cryptohack.org/courses/" target="_blank">CryptoHack</a><br>
+    <a href="https://www.root-me.org/" target="_blank">Root Me</a><br>
+    <a href="https://cyberini.com/" target="_blank">Cyberini</a>
+</section>
+
+</body>
+</html>
