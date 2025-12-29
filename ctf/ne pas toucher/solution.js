@@ -2,7 +2,7 @@ const flags = {
     cracking1:"flag{rot13_facile}",
     cracking2:"flag{cyber}",
 
-    inforensique1:"flag{Easy_cheesy}",
+    inforensique1:"flag{Easy_Cheesy}",
 
     web1:"flag{CTFWEB}",
     web2: "flag{W3bInv3st!gat0r}",
@@ -35,4 +35,5 @@ function checkFlag(challenge) {
         result.textContent = "❌ Mauvais flag";
         result.style.color = "red";
     }
+
 }
