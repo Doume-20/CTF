@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>CTF</title>
 <link rel="stylesheet" href="ne pas toucher/style.CSS">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script src="ne pas toucher/solution.js" defer></script>
 </head>
 <body>
@@ -69,9 +70,9 @@
     <h3>Un PDF qui bug</h3>
     <p>Je n'arrive pas à l'ouvrir... Arrivez-vous à l'ouvrir ? Voici le fichier :</p>
     <a href="ne pas toucher/inforensique/Mon_Document.pdf">Mon_Document.pdf</a><br>
-    <input type="text" id="flag-inforensique1" class="flag-input" placeholder="flag{...}">
-    <button class="flag-button" onclick="checkFlag('inforensique1')">Vérifier</button>
-    <p id="result-inforensique1" class="flag-result"></p>
+    <input type="text" id="flag-inforensique" class="flag-input" placeholder="flag{...}">
+    <button class="flag-button" onclick="checkFlag('inforensique')">Vérifier</button>
+    <p id="result-inforensique" class="flag-result"></p>
 </section>
 
 <section id="web">
