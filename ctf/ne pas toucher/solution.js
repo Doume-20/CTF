@@ -8,6 +8,7 @@ const flags = {
     web2: "flag{W3bInv3st!gat0r}",
     web3: "flag{illusion_regarde_pas_ce_que_tu_vois}",
     web4: "flag{ADMIN_ACCESS_GRANTED}",
+    Web5: "flag{123456azerty}",
     
     stegano1: "flag{presquecaché}",
     textures: "flag{stegapause}",
@@ -37,4 +38,5 @@ function checkFlag(challenge) {
     }
 
 }
+
 
