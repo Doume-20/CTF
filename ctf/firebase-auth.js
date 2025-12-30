@@ -1,0 +1,127 @@
+// firebase-auth.js
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+
+// Your web app's Firebase configuration - This should ideally come from index.html or a config file
+// For simplicity in this context, we will duplicate it here, but in a real app,
+// you'd export 'auth' from the init script in index.html and import it here.
+const firebaseConfig = {
+    apiKey: "AIzaSyCZLA-ZC3AvwIfU7TOBCSzR8MQXVUlrxYY",
+    authDomain: "micro-ctf.firebaseapp.com",
+    projectId: "micro-ctf",
+    storageBucket: "micro-ctf.firebasestorage.app",
+    messagingSenderId: "1050426684786",
+    appId: "1:1050426684786:web:cd3e42937902b813d359eb",
+    measurementId: "G-35YS276NPP"
+};
+
+// Initialize Firebase if it hasn't been already
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// UI Elements
+const authSection = document.getElementById('auth-section');
+const authForms = document.getElementById('auth-forms');
+const userInfo = document.getElementById('user-info');
+const displayUsername = document.getElementById('display-username');
+
+const signupUsernameInput = document.getElementById('signup-username');
+const signupPasswordInput = document.getElementById('signup-password');
+const signupConfirmPasswordInput = document.getElementById('signup-confirm-password');
+const signupButton = document.getElementById('signup-button');
+const signupError = document.getElementById('signup-error');
+
+const loginUsernameInput = document.getElementById('login-username');
+const loginPasswordInput = document.getElementById('login-password');
+const loginButton = document.getElementById('login-button');
+const loginError = document.getElementById('login-error');
+
+const logoutButton = document.getElementById('logout-button');
+
+// Helper function to format username to email
+const formatUsernameAsEmail = (username) => `${username}@ctf.com`; // Using a dummy domain
+
+// Event Listeners
+signupButton.addEventListener('click', async () => {
+    const username = signupUsernameInput.value.trim();
+    const password = signupPasswordInput.value;
+    const confirmPassword = signupConfirmPasswordInput.value;
+    signupError.textContent = '';
+
+    if (!username) {
+        signupError.textContent = 'Please enter a username.';
+        return;
+    }
+    if (!password || !confirmPassword) {
+        signupError.textContent = 'Please fill in all password fields.';
+        return;
+    }
+    if (password !== confirmPassword) {
+        signupError.textContent = 'Passwords do not match.';
+        return;
+    }
+    if (password.length < 6) {
+        signupError.textContent = 'Password should be at least 6 characters.';
+        return;
+    }
+
+    try {
+        const email = formatUsernameAsEmail(username);
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await updateProfile(userCredential.user, { displayName: username });
+        console.log('User signed up and profile updated:', userCredential.user);
+        // Clear form
+        signupUsernameInput.value = '';
+        signupPasswordInput.value = '';
+        signupConfirmPasswordInput.value = '';
+    } catch (error) {
+        console.error('Sign up error:', error.code, error.message);
+        signupError.textContent = `Sign up failed: ${error.message}`;
+    }
+});
+
+loginButton.addEventListener('click', async () => {
+    const username = loginUsernameInput.value.trim();
+    const password = loginPasswordInput.value;
+    loginError.textContent = '';
+
+    if (!username || !password) {
+        loginError.textContent = 'Please fill in both username and password.';
+        return;
+    }
+
+    try {
+        const email = formatUsernameAsEmail(username);
+        await signInWithEmailAndPassword(auth, email, password);
+        console.log('User logged in');
+        // Clear form
+        loginUsernameInput.value = '';
+        loginPasswordInput.value = '';
+    } catch (error) {
+        console.error('Login error:', error.code, error.message);
+        loginError.textContent = `Login failed: ${error.message}`;
+    }
+});
+
+logoutButton.addEventListener('click', async () => {
+    try {
+        await signOut(auth);
+        console.log('User logged out');
+    } catch (error) {
+        console.error('Logout error:', error.code, error.message);
+    }
+});
+
+// Auth state change listener
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in
+        authForms.style.display = 'none';
+        userInfo.style.display = 'block';
+        displayUsername.textContent = user.displayName || user.email.split('@')[0];
+    } else {
+        // User is signed out
+        authForms.style.display = 'block';
+        userInfo.style.display = 'none';
+    }
+});
