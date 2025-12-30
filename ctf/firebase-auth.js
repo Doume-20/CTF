@@ -23,7 +23,7 @@ const loginButton = document.getElementById('login-button');
 const loginError = document.getElementById('login-error');
 
 const logoutButton = document.getElementById('logout-button');
-n// Firebase App and Auth instances from global scope (initialized in index.html)
+// Firebase App and Auth instances from global scope (initialized in index.html)
 const { auth, db, doc, setDoc, getDoc } = window.firebaseAuth;
 
 // Global array to store completed challenges for the current user
