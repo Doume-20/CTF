@@ -1,4 +1,11 @@
 const flags = {
+
+// Get Firebase Auth and Firestore functions from the global scope
+
+const { auth } = window.firebaseAuth; // Assuming auth is globally available
+
+const { markChallengeAsCompleted, updateChallengeUI } = window.ctfFirebaseFunctions; // Functions from firebase-auth.js
+
     cracking1:"flag{rot13_facile}",
     cracking2:"flag{cyber}",
 
@@ -32,6 +39,19 @@ function checkFlag(challenge) {
     if (input.value.trim() === flags[challenge]) {
         result.textContent = "✅ Flag correct !";
         result.style.color = "lime";
+        
+        // Mark challenge as completed in Firestore if user is logged in
+
+        if (auth.currentUser) {
+
+            await markChallengeAsCompleted(auth.currentUser.uid, challenge);
+
+            // Update UI for this specific challenge immediately
+
+            updateChallengeUI([challenge]);
+
+        }
+
     } else {
         result.textContent = "❌ Mauvais flag";
         result.style.color = "red";

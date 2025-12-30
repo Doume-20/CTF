@@ -135,3 +135,58 @@ a:hover {
 p.VLC{
     color: #38bdf8;
 }
+
+/* ===== COMPLETED CHALLENGES ===== */
+
+.completed-section {
+
+    opacity: 0.7;
+
+    border-left: 5px solid lime;
+
+    padding-left: 35px; /* Adjust padding to account for the new border */
+
+}
+
+
+.flag-input.completed-flag {
+
+    background-color: #0d361b; /* Darker green background */
+
+    border-color: lime;
+
+    color: #a0ffa0;
+
+    cursor: not-allowed;
+
+}
+
+
+.flag-button:disabled {
+
+    background-color: #020617;
+
+    color: #64748b;
+
+    border-color: #64748b;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+
+}
+
+
+.flag-button:disabled:hover {
+
+    background-color: #020617;
+
+    color: #64748b;
+
+    border-color: #64748b;
+
+    box-shadow: none;
+
+}
+
+
