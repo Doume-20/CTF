@@ -1,11 +1,4 @@
 const flags = {
-
-// Get Firebase Auth and Firestore functions from the global scope
-
-const { auth } = window.firebaseAuth; // Assuming auth is globally available
-
-const { markChallengeAsCompleted, updateChallengeUI } = window.ctfFirebaseFunctions; // Functions from firebase-auth.js
-
     cracking1:"flag{rot13_facile}",
     cracking2:"flag{cyber}",
 
@@ -25,7 +18,13 @@ const { markChallengeAsCompleted, updateChallengeUI } = window.ctfFirebaseFuncti
     hex: "crypto{You_will_be_working_with_hex_strings_a_lot}",
     base64: "crypto{Base+64+Encoding+is+Web+Safe}",
     xor: "crypto{LYCEE}",
-    };
+};
+
+// Get Firebase Auth and Firestore functions from the global scope
+
+const { auth } = window.firebaseAuth; // Assuming auth is globally available
+
+const { markChallengeAsCompleted, updateChallengeUI } = window.ctfFirebaseFunctions; // Functions from firebase-auth.js
 
 function checkFlag(challenge) {
     const input = document.getElementById("flag-" + challenge);
