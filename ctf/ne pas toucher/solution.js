@@ -9,6 +9,7 @@ const flags = {
     web3: "02d97da998a7f83432428f39ecc838d5f119b27763e7ad7b2db025da9783da47",
     web4: "2f00a2dfe3562426624a2e0f621241542920aadabfc273687b2b64cb7d6dfe37",
     web5: "d3a96ff474082295e583ee6748c4e07847296b65a7785b86977182860c7ef263",
+    web6: "d50ad0b00694b27967436f2b8347827d23e25b52605c4b3199463fe25685d909",
     
     stegano1: "65386109f33264d8a835e2daa4fefec25e77e574fb9dbe458a8ef5c04a79f0e0",
     textures: "b6f2937c830aecade95e0a8b809a90069776ea606aee7bb90c20cf2ba7aaba1d",
@@ -36,7 +37,7 @@ function checkFlag(challenge) {
     }
 
     const hashed_input = CryptoJS.SHA256(input.value.trim()).toString();
-
+    
     if (hashed_input === flags[challenge]) {
         result.textContent = "✅ Flag correct !";
         result.style.color = "lime";
